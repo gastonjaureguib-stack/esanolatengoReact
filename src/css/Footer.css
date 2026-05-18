@@ -1,0 +1,68 @@
+.footer-section {
+    background-color: #002b2b;
+    color: #f3e5ab;
+    border-top: 4px solid #c19a6b;
+    margin-top: 50px;
+}
+
+.footer-slogan {
+    font-family: 'Playfair Display', serif; 
+    font-style: italic;
+    color: #c19a6b;
+    font-weight: 700;
+}
+
+.footer-location {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* --- NAVBAR DEL FOOTER --- */
+.footer-link {
+    color: #f3e5ab !important;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 5px 0 !important;
+}
+
+.footer-link:hover {
+    color: #c19a6b !important;
+}
+
+/* --- ICONOS REDES --- */
+.social-icon {
+    font-size: 1.8rem;
+    color: #c19a6b;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    color: #f3e5ab;
+}
+
+/* --- BOTÓN GOOGLE MAPS --- */
+.btn-mapa {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid #c19a6b;
+    color: #c19a6b;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-mapa:hover {
+    background-color: #c19a6b;
+    color: #002b2b;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(193, 154, 107, 0.1);
+    opacity: 0.5;
+}

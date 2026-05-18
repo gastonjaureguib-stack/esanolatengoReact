@@ -1,0 +1,213 @@
+[
+  {
+    "id": "1",
+    "name": "Adansonii",
+    "description": "Planta tropical de interior con hojas perforadas y crecimiento trepador.",
+    "price": 1200,
+    "stock": 10,
+    "category": "interior",
+    "img": "/img/plantas/adanzonii.png",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "name": "Aglaonema Premium",
+    "description": "Follaje elegante ideal para espacios modernos y luminosos.",
+    "price": 2500,
+    "stock": 5,
+    "category": "interior",
+    "img": "/img/plantas/aglonemapremium.png",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "name": "Alocasia Picoliny",
+    "description": "Variedad tropical de hojas intensas y porte exótico.",
+    "price": 1800,
+    "stock": 7,
+    "category": "interior",
+    "img": "/img/plantas/alocasiapicoliny.png",
+    "featured": true
+  },
+  {
+    "id": "4",
+    "name": "Aglaonema",
+    "description": "Planta resistente y decorativa perfecta para interiores.",
+    "price": 2100,
+    "stock": 8,
+    "category": "interior",
+    "img": "/img/plantas/anglomena.png"
+  },
+  {
+    "id": "5",
+    "name": "Birkin",
+    "description": "Philodendron de hojas rayadas con estética sofisticada.",
+    "price": 2800,
+    "stock": 6,
+    "category": "interior",
+    "img": "/img/plantas/birkin.png",
+      "featured": true
+  },
+  {
+    "id": "6",
+    "name": "Calathea",
+    "description": "Planta ornamental de hojas vibrantes y movimiento natural.",
+    "price": 1500,
+    "stock": 12,
+    "category": "interior",
+    "img": "/img/plantas/calathea.png"
+  },
+  {
+    "id": "7",
+    "name": "Calathea Macoyana",
+    "description": "Conocida como planta pavo real por sus hojas decorativas.",
+    "price": 1900,
+    "stock": 9,
+    "category": "interior",
+    "img": "/img/plantas/calatheamacoyana.png"
+  },
+  {
+    "id": "8",
+    "name": "Calathea Zebrina",
+    "description": "Hojas aterciopeladas con patrones tropicales únicos.",
+    "price": 2200,
+    "stock": 5,
+    "category": "interior",
+    "img": "/img/plantas/calatheazebrina.png"
+  },
+  {
+    "id": "9",
+    "name": "Camila",
+    "description": "Planta decorativa de fácil cuidado y gran presencia visual.",
+    "price": 1300,
+    "stock": 15,
+    "category": "interior",
+    "img": "/img/plantas/camila.png"
+  },
+  {
+    "id": "10",
+    "name": "Chamadorea",
+    "description": "Palmera elegante ideal para interiores con luz indirecta.",
+    "price": 950,
+    "stock": 20,
+    "category": "interior",
+    "img": "/img/plantas/chamadorea.png"
+  },
+  {
+    "id": "11",
+    "name": "Dieffenbachia Plata",
+    "description": "Follaje plateado y tropical perfecto para ambientes cálidos.",
+    "price": 1700,
+    "stock": 6,
+    "category": "interior",
+    "img": "/img/plantas/diafenbachiaplata.png"
+  },
+  {
+    "id": "12",
+    "name": "Lirio de la Paz",
+    "description": "Planta elegante con flores blancas y fácil mantenimiento.",
+    "price": 1400,
+    "stock": 10,
+    "category": "interior",
+    "img": "/img/plantas/liriodelapaz.png"
+  },
+  {
+    "id": "13",
+    "name": "Pacová",
+    "description": "Gran follaje tropical para espacios amplios y luminosos.",
+    "price": 3900,
+    "stock": 5,
+    "category": "interior",
+    "img": "/img/plantas/pacova.png"
+  },
+  {
+    "id": "14",
+    "name": "Peperomia",
+    "description": "Compacta, delicada y perfecta para escritorios o estanterías.",
+    "price": 850,
+    "stock": 18,
+    "category": "interior",
+    "img": "/img/plantas/peperomia.png"
+  },
+  {
+    "id": "15",
+    "name": "Pilea",
+    "description": "Popular por sus hojas redondas y estética minimalista.",
+    "price": 1100,
+    "stock": 14,
+    "category": "interior",
+    "img": "/img/plantas/pilea.png"
+  },
+  {
+    "id": "16",
+    "name": "Cuerno de Alce",
+    "description": "Helecho exótico de aspecto selvático y ornamental.",
+    "price": 2600,
+    "stock": 4,
+    "category": "exterior",
+    "img": "/img/plantas/cuernodealce.png"
+  },
+  {
+    "id": "17",
+    "name": "Croton",
+    "description": "Follaje colorido ideal para aportar energía visual.",
+    "price": 1100,
+    "stock": 12,
+    "category": "exterior",
+    "img": "/img/plantas/croton.png"
+  },
+  {
+    "id": "18",
+    "name": "Alocasia Black Velvet",
+    "description": "Alocasia premium de hojas oscuras y textura aterciopelada.",
+    "price": 3200,
+    "stock": 4,
+    "category": "exoticas",
+    "img": "/img/plantas/alocasiablackvelvet.png"
+  },
+  {
+    "id": "19",
+    "name": "Alocasia Cuprea",
+    "description": "Variedad rara con hojas metálicas de apariencia futurista.",
+    "price": 3800,
+    "stock": 3,
+    "category": "exoticas",
+    "img": "/img/plantas/alocasiacrupea.png"
+  },
+  {
+    "id": "20",
+    "name": "Alocasia Magic",
+    "description": "Planta tropical exótica con gran impacto visual.",
+    "price": 3500,
+    "stock": 4,
+    "category": "exoticas",
+    "img": "/img/plantas/alocasiamagic.png"
+  },
+  {
+    "id": "21",
+    "name": "Longiloba",
+    "description": "Hojas alargadas y porte sofisticado para coleccionistas.",
+    "price": 3100,
+    "stock": 3,
+    "category": "exoticas",
+    "img": "/img/plantas/longiloba.png"
+  },
+  {
+    "id": "22",
+    "name": "Nephentes",
+    "description": "Planta carnívora tropical única y llamativa.",
+    "price": 4500,
+    "stock": 2,
+    "category": "exoticas",
+    "img": "/img/plantas/nephente.png"
+  },
+  {
+    "id": "23",
+    "name": "Pink Princess",
+    "description": "Philodendron de colección con variegación rosada.",
+    "price": 8900,
+    "stock": 2,
+    "category": "exoticas",
+    "img": "/img/plantas/pinkprincess.png"
+  }
+]

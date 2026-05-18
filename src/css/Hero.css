@@ -1,0 +1,58 @@
+/* --- CONTENEDOR GENERAL --- */
+.hero-container {
+    background-color: #004444; 
+    width: 100%;
+    padding-top: 50px;
+}
+
+/* --- TRATAMIENTO DE LA IMAGEN --- */
+.hero-img {
+   
+    height: auto !important; 
+    max-height: 130vh; 
+    width: 100%;
+    
+    object-fit: contain !important; 
+}
+
+/* --- FLECHAS DE NAVEGACIÓN --- */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    filter: invert(72%) sepia(15%) saturate(836%) hue-rotate(346deg) brightness(88%) contrast(86%);
+    transition: transform 0.2s ease;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    transform: scale(1.1); /* Efecto de crecimiento al pasar el mouse */
+}
+
+/* --- INDICADORES--- */
+.carousel-indicators [button] {
+    background-color: #c19a6b !important; /* Camel */
+    height: 4px;
+    border-radius: 2px;
+    opacity: 0.5;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    width: 40px; 
+}
+
+
+@media (max-width: 768px) {
+    .hero-img {
+       
+        object-fit: contain !important; 
+        max-height: 50vh;
+    }
+    
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+}

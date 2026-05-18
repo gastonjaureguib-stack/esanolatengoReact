@@ -1,0 +1,54 @@
+/* --- ESTILO DE LA TARJETA --- */
+.producto-card {
+    background-color: #003333 !important; /* Un poco más oscuro que el fondo principal */
+    border: 1px solid rgba(193, 154, 107, 0.3) !important;
+    color: #f3e5ab !important;
+    transition: transform 0.3s ease;
+    width: 18rem;
+    margin: 1rem;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    border-color: #c19a6b !important;
+}
+
+/* --- IMAGEN DEL PRODUCTO --- */
+.producto-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* --- TEXTOS --- */
+.producto-titulo {
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.producto-info, .list-group-item {
+    background-color: transparent !important;
+    color: #f3e5ab !important;
+    border-color: rgba(193, 154, 107, 0.2) !important;
+    font-size: 0.9rem;
+}
+
+.producto-precio {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #c19a6b !important;
+}
+
+/* --- BOTÓN --- */
+.btn-camel {
+    background-color: #c19a6b !important;
+    border: none !important;
+    color: #004444 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.btn-camel:hover {
+    background-color: #f3e5ab !important;
+}

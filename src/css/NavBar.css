@@ -1,0 +1,62 @@
+/* --- CONTENEDOR PRINCIPAL --- */
+.nav-principal {
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+
+/* --- ENLACES DE NAVEGACIÓN --- */
+.nav-principal .nav-link {
+    color: #f3e5ab !important; 
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 10px 15px !important;
+    position: relative;
+    transition: all 0.3s ease; 
+}
+
+/* ---(HOVER) --- */
+.nav-principal .nav-link:hover {
+    color: #ffffff !important; 
+    text-shadow: 0 0 12px rgba(193, 154, 107, 0.6);
+    transform: translateY(-1px); 
+}
+
+/* --- MENÚ DESPLEGABL --- */
+.dropdown-menu {
+    background-color: #003333 !important;
+    border: 1px solid #c19a6b !important;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    margin-top: 0 !important; 
+}
+
+/* --- ITEMS DENTRO DEL DESPLEGABLE --- */
+.dropdown-item {
+    color: #f3e5ab !important;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 12px 20px !important;
+    transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #c19a6b !important;
+    color: #004444 !important;
+}
+
+/* --- LÍNEA DIVISORIA EN DESPLEGABLE --- */
+.dropdown-divider {
+    border-top: 1px solid rgba(193, 154, 107, 0.2);
+}
+
+/* --- (HAMBURGUESA) --- */
+.navbar-toggler {
+    border: 1px solid #c19a6b !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(72%) sepia(15%) saturate(836%) hue-rotate(346deg) brightness(88%) contrast(86%);
+}
