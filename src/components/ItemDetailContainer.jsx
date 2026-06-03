@@ -1,73 +1,81 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { useParams } from 'react-router-dom'
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../service/firebase";
 
-import products from '../mock/Productos.json'
-
-import ItemDetail from './ItemDetail'
+import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
 
-  const [item, setItem] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Captura el ID desde la URL
-  const { itemId } = useParams()
-
-  // Simulación de promesa
-  const getProductById = () => {
-
-    return new Promise((resolve) => {
-
-      setTimeout(() => {
-
-        resolve(
-          products.find(
-            (product) => product.id === itemId
-          )
-        )
-
-      }, 2000)
-
-    })
-  }
+  const { itemId } = useParams();
 
   useEffect(() => {
 
-    getProductById()
+    const getItem = async () => {
 
-      .then((response) => {
-        setItem(response)
-      })
+      try {
 
-      .catch((error) => {
-        console.log(error)
-      })
+        // Referencia al documento específico
+        const docRef = doc(db, "items", itemId);
 
-      .finally(() => {
-        setLoading(false)
-      })
+        // Consulta a Firebase
+        const snapshot = await getDoc(docRef);
 
-  }, [itemId])
+        // Verificamos si existe
+        if (snapshot.exists()) {
 
-  return (
+          setItem({
+            id: snapshot.id,
+            ...snapshot.data()
+          });
 
-    <div className="container my-5">
+        } else {
 
-      {
-        loading
-          ? (
-            <h2 className="text-center text-light">
-              Cargando detalle...
-            </h2>
-          )
-          : (
-            <ItemDetail item={item} />
-          )
+          setItem(null);
+
+        }
+
+      } catch (error) {
+
+        console.log("Error cargando item:", error);
+
+      } finally {
+
+        setLoading(false);
+
       }
 
-    </div>
-  )
-}
+    };
 
-export default ItemDetailContainer
+    getItem();
+
+  }, [itemId]);
+
+  if (loading) {
+    return (
+      <h2 className="text-center text-light">
+        Cargando detalle...
+      </h2>
+    );
+  }
+
+  if (!item) {
+    return (
+      <h2 className="text-center text-light">
+        Producto no encontrado
+      </h2>
+    );
+  }
+
+  return (
+    <div className="container my-5">
+      <ItemDetail item={item} />
+    </div>
+  );
+};
+
+export default ItemDetailContainer;

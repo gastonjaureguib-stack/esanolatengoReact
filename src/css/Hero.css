@@ -26,12 +26,12 @@
 
 .carousel-control-prev:hover .carousel-control-prev-icon,
 .carousel-control-next:hover .carousel-control-next-icon {
-    transform: scale(1.1); /* Efecto de crecimiento al pasar el mouse */
+    transform: scale(1.1); 
 }
 
 /* --- INDICADORES--- */
 .carousel-indicators [button] {
-    background-color: #c19a6b !important; /* Camel */
+    background-color: #c19a6b !important; 
     height: 4px;
     border-radius: 2px;
     opacity: 0.5;

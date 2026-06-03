@@ -1,10 +1,19 @@
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card';
+
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({ item }) => {
 
-  return (
+  const { addItem } = useContext(CartContext);
 
+  // 🔥 AHORA RECIBE CANTIDAD REAL
+  const handleAddToCart = (quantity) => {
+    addItem(item, quantity);
+  };
+
+  return (
     <Card
       className="shadow-lg border-0"
       style={{
@@ -36,67 +45,52 @@ const ItemDetail = ({ item }) => {
 
           <Card.Body className="p-5">
 
-            <p
-              style={{
-                color: '#6c757d',
-                textTransform: 'uppercase',
-                letterSpacing: '2px'
-              }}
-            >
+            <p style={{
+              color: '#6c757d',
+              textTransform: 'uppercase',
+              letterSpacing: '2px'
+            }}>
               {item.category}
             </p>
 
-            <Card.Title
-              style={{
-                fontSize: '3rem',
-                fontWeight: '700',
-                marginBottom: '20px',
-                color: '#1f3b2c'
-              }}
-            >
+            <Card.Title style={{
+              fontSize: '3rem',
+              fontWeight: '700',
+              marginBottom: '20px',
+              color: '#1f3b2c'
+            }}>
               {item.name}
             </Card.Title>
 
-            <Card.Text
-              style={{
-                fontSize: '1.1rem',
-                lineHeight: '1.8',
-                color: '#4b4b4b'
-              }}
-            >
+            <Card.Text style={{
+              fontSize: '1.1rem',
+              lineHeight: '1.8',
+              color: '#4b4b4b'
+            }}>
               {item.description}
             </Card.Text>
 
-            <h2
-              style={{
-                marginTop: '30px',
-                color: '#8b6f47',
-                fontWeight: '700'
-              }}
-            >
+            <h2 style={{
+              marginTop: '30px',
+              color: '#8b6f47',
+              fontWeight: '700'
+            }}>
               ${item.price}
             </h2>
 
-            <p
-              style={{
-                marginTop: '10px',
-                color: '#6c757d'
-              }}
-            >
+            <p style={{
+              marginTop: '10px',
+              color: '#6c757d'
+            }}>
               Stock disponible: {item.stock}
             </p>
 
-            <Button
-              size="lg"
-              style={{
-                backgroundColor: '#8b6f47',
-                border: 'none',
-                marginTop: '25px',
-                padding: '12px 30px'
-              }}
-            >
-              Agregar al carrito
-            </Button>
+            {/* 🔥 COUNT REAL CONECTADO */}
+            <ItemCount
+              stock={item.stock}
+              initial={1}
+              onAdd={handleAddToCart}
+            />
 
           </Card.Body>
 
@@ -105,7 +99,7 @@ const ItemDetail = ({ item }) => {
       </div>
 
     </Card>
-  )
-}
+  );
+};
 
-export default ItemDetail
+export default ItemDetail;

@@ -1,58 +1,51 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import ItemList from './ItemList';
 
-import Container from 'react-bootstrap/Container'
-
-import ItemList from './ItemList'
-
-import products from '../mock/Productos.json'
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../service/firebase";
 
 const ItemListContainer = () => {
 
-  const [items, setItems] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  // Simulación de promesa
-  const getProducts = () => {
-
-    return new Promise((resolve) => {
-
-      setTimeout(() => {
-        resolve(products)
-      }, 2000)
-
-    })
-  }
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
 
-    getProducts()
-      .then((response) => {
+    const getProducts = async () => {
 
+      try {
 
-        const featuredProducts = response.filter(
+        const colRef = collection(db, "items");
+        const snapshot = await getDocs(colRef);
+
+        const data = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+        const featured = data.filter(
           (item) => item.featured === true
-        )
+        );
 
-        setItems(featuredProducts)
+        setItems(featured);
 
-      })
+      } catch (error) {
+        console.log("Error cargando productos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      .catch((error) => {
-        console.log(error)
-      })
+    getProducts();
 
-      .finally(() => {
-        setLoading(false)
-      })
-
-  }, [])
+  }, []);
 
   return (
 
     <Container className="my-5">
 
-      <h2
-        className="text-center mb-5"
+      <h2 className="text-center mb-5"
         style={{
           color: '#f3e5ab',
           textTransform: 'uppercase',
@@ -69,7 +62,7 @@ const ItemListContainer = () => {
       }
 
     </Container>
-  )
-}
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;

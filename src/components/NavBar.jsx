@@ -9,9 +9,7 @@ import '../css/NavBar.css'
 
 const NavBar = () => {
   return (
-
     <Navbar expand="lg" className="nav-principal">
-
       <Container>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -20,6 +18,7 @@ const NavBar = () => {
 
           <Nav className="me-auto">
 
+            {/* TIENDA GENERAL */}
             <Nav.Link
               as={Link}
               to="/"
@@ -36,39 +35,28 @@ const NavBar = () => {
               Comunidad
             </Nav.Link>
 
+            {/* DROPDOWN CATEGORÍAS */}
             <NavDropdown
               title="VARIEDADES"
               id="basic-nav-dropdown"
               className="custom-dropdown"
             >
 
-              <NavDropdown.Item
-                as={Link}
-                to="/category/interior"
-              >
+              <NavDropdown.Item as={Link} to="/tienda/interior">
                 Interior
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                as={Link}
-                to="/category/exterior"
-              >
+              <NavDropdown.Item as={Link} to="/tienda/exterior">
                 Exterior
               </NavDropdown.Item>
 
-              <NavDropdown.Item
-                as={Link}
-                to="/category/exoticas"
-              >
+              <NavDropdown.Item as={Link} to="/tienda/exoticas">
                 Exóticas
               </NavDropdown.Item>
 
               <NavDropdown.Divider />
 
-              <NavDropdown.Item
-                as={Link}
-                to="/category/insumos"
-              >
+              <NavDropdown.Item as={Link} to="/tienda/insumos">
                 Insumos
               </NavDropdown.Item>
 
@@ -79,7 +67,6 @@ const NavBar = () => {
         </Navbar.Collapse>
 
       </Container>
-
     </Navbar>
   )
 }

@@ -1,0 +1,221 @@
+.pokemon-card {
+  width: 100%;
+  max-width: 340px;
+
+  border-radius: 28px;
+  overflow: hidden;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffcb05 0%,
+      #f5b700 48%,
+      #d62828 49%,
+      #d62828 100%
+    );
+
+  border: 6px solid #1d3557;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.45),
+    inset 0 0 0 4px rgba(255,255,255,0.12);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  text-align: center;
+  padding: 2rem 1.5rem;
+
+  color: white;
+}
+
+/* Hover */
+.pokemon-card:hover {
+  transform:
+    translateY(-10px)
+    scale(1.03);
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.6);
+}
+
+/* Línea central tipo Pokeball */
+.pokemon-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 48%;
+  left: 0;
+
+  width: 100%;
+  height: 10px;
+
+  background: #1d3557;
+
+  z-index: 1;
+}
+
+/* Botón central Pokeball */
+.pokemon-card::after {
+  content: "";
+
+  position: absolute;
+
+  top: calc(48% - 22px);
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  border: 8px solid #1d3557;
+
+  z-index: 2;
+
+  box-shadow:
+    0 0 0 5px rgba(255,255,255,0.2);
+}
+
+/* Número */
+.pokemon-id {
+  position: absolute;
+
+  top: 16px;
+  left: 16px;
+
+  background: rgba(0,0,0,0.3);
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(6px);
+
+  z-index: 5;
+}
+
+/* Imagen */
+.pokemon-img {
+  width: 180px;
+  height: 180px;
+
+  object-fit: contain;
+
+  margin: 0 auto 1rem auto;
+
+  display: block;
+
+  position: relative;
+  z-index: 5;
+
+  image-rendering: pixelated;
+
+  filter:
+    drop-shadow(0 12px 18px rgba(0,0,0,0.45));
+
+  transition:
+    transform 0.3s ease;
+}
+
+.pokemon-card:hover .pokemon-img {
+  transform:
+    scale(1.08)
+    rotate(-2deg);
+}
+
+/* Nombre */
+.pokemon-title {
+  font-size: 2rem;
+  font-weight: 800;
+
+  text-transform: capitalize;
+
+  margin-top: 10px;
+
+  color: white;
+
+  position: relative;
+  z-index: 5;
+
+  text-shadow:
+    2px 2px 0 #1d3557;
+}
+
+/* Tipo */
+.pokemon-type {
+  margin-top: 8px;
+
+  display: inline-block;
+
+  padding: 6px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.18);
+
+  backdrop-filter: blur(8px);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  color: white;
+
+  position: relative;
+  z-index: 5;
+}
+
+/* Descripción */
+.pokemon-description {
+  margin-top: 20px;
+
+  line-height: 1.7;
+
+  font-size: 0.96rem;
+
+  color: rgba(255,255,255,0.95);
+
+  position: relative;
+  z-index: 5;
+}
+
+/* Glow interno */
+.pokemon-card .card-body {
+  position: relative;
+  z-index: 5;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+
+  .pokemon-card {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+  }
+
+  .pokemon-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .pokemon-title {
+    font-size: 1.6rem;
+  }
+}
