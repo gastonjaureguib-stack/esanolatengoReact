@@ -1,18 +1,9 @@
-// Importamos las herramientas necesarias de React
+
 import { createContext, useState, useEffect } from "react";
-
-
-// Creamos el Contexto.
 export const CartContext = createContext();
-
-
-// Creamos el Provider.
 export const CartProvider = ({ children }) => {
 
-  // ====================================================
-  // CARGAR CARRITO DESDE LOCALSTORAGE
-  // ====================================================
-  const [cart, setCart] = useState(() => {
+    const [cart, setCart] = useState(() => {
 
     const savedCart = localStorage.getItem("cart");
 
@@ -22,10 +13,7 @@ export const CartProvider = ({ children }) => {
 
   });
 
-
-  // ====================================================
-  // GUARDAR CARRITO EN LOCALSTORAGE
-  // ====================================================
+  
   useEffect(() => {
 
     localStorage.setItem(
@@ -34,7 +22,6 @@ export const CartProvider = ({ children }) => {
     );
 
   }, [cart]);
-
 
   // ====================================================
   // AGREGAR PRODUCTO AL CARRITO
@@ -50,10 +37,14 @@ export const CartProvider = ({ children }) => {
       const updatedCart = cart.map((prod) => {
 
         if (prod.id === item.id) {
+
+          const newQuantity = prod.quantity + quantity;
+
           return {
             ...prod,
-            quantity: prod.quantity + quantity
+            quantity: Math.min(newQuantity, prod.stock)
           };
+
         }
 
         return prod;
@@ -67,39 +58,39 @@ export const CartProvider = ({ children }) => {
         ...cart,
         {
           ...item,
-          quantity
+          quantity: Math.min(quantity, item.stock)
         }
       ]);
-    }
-  };
 
+    }
+
+  };
 
   // ====================================================
   // SUMAR 1 UNIDAD
   // ====================================================
- const increaseQuantity = (id) => {
+  const increaseQuantity = (id) => {
 
-  const updatedCart = cart.map((prod) => {
+    const updatedCart = cart.map((prod) => {
 
-    if (prod.id === id) {
+      if (prod.id === id) {
 
-      // No permite superar el stock disponible
-      if (prod.quantity >= prod.stock) {
-        return prod;
+        // No permite superar el stock disponible
+        if (prod.quantity >= prod.stock) {
+          return prod;
+        }
+
+        return {
+          ...prod,
+          quantity: prod.quantity + 1
+        };
       }
 
-      return {
-        ...prod,
-        quantity: prod.quantity + 1
-      };
-    }
+      return prod;
+    });
 
-    return prod;
-  });
-
-  setCart(updatedCart);
-};
-
+    setCart(updatedCart);
+  };
 
   // ====================================================
   // RESTAR 1 UNIDAD
@@ -134,7 +125,6 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-
   // ====================================================
   // ELIMINAR PRODUCTO
   // ====================================================
@@ -147,7 +137,6 @@ export const CartProvider = ({ children }) => {
     setCart(updatedCart);
   };
 
-
   // ====================================================
   // VACIAR CARRITO
   // ====================================================
@@ -155,7 +144,6 @@ export const CartProvider = ({ children }) => {
 
     setCart([]);
   };
-
 
   // ====================================================
   // TOTAL DE UNIDADES
@@ -168,7 +156,6 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-
   // ====================================================
   // TOTAL DE DINERO
   // ====================================================
@@ -180,7 +167,6 @@ export const CartProvider = ({ children }) => {
       0
     );
   };
-
 
   // ====================================================
   // PROVIDER

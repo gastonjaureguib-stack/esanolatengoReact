@@ -18,7 +18,26 @@ const Checkout = () => {
 
   const [orderId, setOrderId] = useState("");
 
-  // ✅ AHORA RECIBE DATA DEL FORM
+  // ====================================================
+  // EVITAR CHECKOUT VACÍO
+  // ====================================================
+  if (cart.length === 0 && !orderId) {
+    return (
+      <div className="container my-5 text-center text-light">
+
+        <h2>Tu carrito está vacío</h2>
+
+        <p>
+          Agrega productos antes de finalizar una compra.
+        </p>
+
+      </div>
+    );
+  }
+
+  // ====================================================
+  // GENERAR ORDEN
+  // ====================================================
   const handleSubmitOrder = async (buyer) => {
 
     if (!buyer.name || !buyer.phone || !buyer.email) {
@@ -43,6 +62,7 @@ const Checkout = () => {
       const docRef = await addDoc(ordersRef, order);
 
       setOrderId(docRef.id);
+
       clearCart();
 
       Swal.fire({
@@ -53,30 +73,46 @@ const Checkout = () => {
       });
 
     } catch (error) {
+
       console.log(error);
 
       Swal.fire({
         icon: "error",
         title: "Error al generar la orden"
       });
+
     }
+
   };
 
-  // SI YA HAY ORDEN
+  // ====================================================
+  // COMPRA FINALIZADA
+  // ====================================================
   if (orderId) {
     return (
       <div className="container my-5 text-center text-light">
+
         <h1>¡Gracias por tu compra!</h1>
+
         <p>Número de orden:</p>
-        <h3 style={{ color: "#f3e5ab" }}>{orderId}</h3>
+
+        <h3 style={{ color: "#f3e5ab" }}>
+          {orderId}
+        </h3>
+
       </div>
     );
   }
 
+  // ====================================================
+  // FORMULARIO DE CHECKOUT
+  // ====================================================
   return (
     <div className="container my-5 text-light">
 
-      <h2 className="mb-4">Checkout</h2>
+      <h2 className="mb-4">
+        Checkout
+      </h2>
 
       <CheckoutForm
         handleSubmitOrder={handleSubmitOrder}
