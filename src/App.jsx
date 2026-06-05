@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Error from './pages/Error';
 import Tienda from './pages/Tienda';
-import Cart from './components/Cart'; // 👈 AGREGAR
+import Cart from './components/Cart'; 
 
 import { CartProvider } from './context/CartContext';
 import Checkout from './components/Checkout';

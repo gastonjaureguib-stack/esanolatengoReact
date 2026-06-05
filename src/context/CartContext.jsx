@@ -77,22 +77,28 @@ export const CartProvider = ({ children }) => {
   // ====================================================
   // SUMAR 1 UNIDAD
   // ====================================================
-  const increaseQuantity = (id) => {
+ const increaseQuantity = (id) => {
 
-    const updatedCart = cart.map((prod) => {
+  const updatedCart = cart.map((prod) => {
 
-      if (prod.id === id) {
-        return {
-          ...prod,
-          quantity: prod.quantity + 1
-        };
+    if (prod.id === id) {
+
+      // No permite superar el stock disponible
+      if (prod.quantity >= prod.stock) {
+        return prod;
       }
 
-      return prod;
-    });
+      return {
+        ...prod,
+        quantity: prod.quantity + 1
+      };
+    }
 
-    setCart(updatedCart);
-  };
+    return prod;
+  });
+
+  setCart(updatedCart);
+};
 
 
   // ====================================================

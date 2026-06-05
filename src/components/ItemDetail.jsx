@@ -1,6 +1,8 @@
 import Card from 'react-bootstrap/Card';
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { CartContext } from '../context/CartContext';
 import ItemCount from './ItemCount';
 
@@ -8,9 +10,13 @@ const ItemDetail = ({ item }) => {
 
   const { addItem } = useContext(CartContext);
 
-  // 🔥 AHORA RECIBE CANTIDAD REAL
+  const [added, setAdded] = useState(false);
+
   const handleAddToCart = (quantity) => {
+
     addItem(item, quantity);
+
+    setAdded(true);
   };
 
   return (
@@ -45,52 +51,113 @@ const ItemDetail = ({ item }) => {
 
           <Card.Body className="p-5">
 
-            <p style={{
-              color: '#6c757d',
-              textTransform: 'uppercase',
-              letterSpacing: '2px'
-            }}>
+            <p
+              style={{
+                color: '#6c757d',
+                textTransform: 'uppercase',
+                letterSpacing: '2px'
+              }}
+            >
               {item.category}
             </p>
 
-            <Card.Title style={{
-              fontSize: '3rem',
-              fontWeight: '700',
-              marginBottom: '20px',
-              color: '#1f3b2c'
-            }}>
+            <Card.Title
+              style={{
+                fontSize: '3rem',
+                fontWeight: '700',
+                marginBottom: '20px',
+                color: '#1f3b2c'
+              }}
+            >
               {item.name}
             </Card.Title>
 
-            <Card.Text style={{
-              fontSize: '1.1rem',
-              lineHeight: '1.8',
-              color: '#4b4b4b'
-            }}>
+            <Card.Text
+              style={{
+                fontSize: '1.1rem',
+                lineHeight: '1.8',
+                color: '#4b4b4b'
+              }}
+            >
               {item.description}
             </Card.Text>
 
-            <h2 style={{
-              marginTop: '30px',
-              color: '#8b6f47',
-              fontWeight: '700'
-            }}>
+            <h2
+              style={{
+                marginTop: '30px',
+                color: '#8b6f47',
+                fontWeight: '700'
+              }}
+            >
               ${item.price}
             </h2>
 
-            <p style={{
-              marginTop: '10px',
-              color: '#6c757d'
-            }}>
+            <p
+              style={{
+                marginTop: '10px',
+                color: '#6c757d'
+              }}
+            >
               Stock disponible: {item.stock}
             </p>
 
-            {/* 🔥 COUNT REAL CONECTADO */}
-            <ItemCount
-              stock={item.stock}
-              initial={1}
-              onAdd={handleAddToCart}
-            />
+            {item.stock === 0 ? (
+
+              <div className="mt-4">
+
+                <h5
+                  style={{
+                    color: '#dc3545',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  ❌ Producto sin stock
+                </h5>
+
+              </div>
+
+            ) : !added ? (
+
+              <ItemCount
+                stock={item.stock}
+                initial={1}
+                onAdd={handleAddToCart}
+              />
+
+            ) : (
+
+              <div className="mt-4">
+
+                <h5
+                  style={{
+                    color: '#198754',
+                    marginBottom: '15px'
+                  }}
+                >
+                  Producto agregado al carrito ✓
+                </h5>
+
+                <div className="d-flex gap-2">
+
+                  <Link
+                    to="/cart"
+                    className="btn btn-success"
+                  >
+                    Ir al carrito
+                  </Link>
+
+                  <Link
+                    to="/tienda"
+                    className="btn btn-outline-secondary"
+                  >
+                    Seguir comprando
+                  </Link>
+
+                </div>
+
+              </div>
+
+            )}
 
           </Card.Body>
 
