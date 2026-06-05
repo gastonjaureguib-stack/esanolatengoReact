@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import ItemList from './ItemList';
 
-import { collection, getDocs } from "firebase/firestore";
+
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../service/firebase";
 
 const ItemListContainer = () => {
@@ -17,18 +18,20 @@ const ItemListContainer = () => {
       try {
 
         const colRef = collection(db, "items");
-        const snapshot = await getDocs(colRef);
+        
+        
+        const q = query(colRef, where("featured", "==", true));
+        
+        
+        const snapshot = await getDocs(q);
 
         const data = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
         }));
 
-        const featured = data.filter(
-          (item) => item.featured === true
-        );
-
-        setItems(featured);
+        
+        setItems(data);
 
       } catch (error) {
         console.log("Error cargando productos:", error);
